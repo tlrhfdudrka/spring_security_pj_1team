@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+.footer_info {
+	margin-top: 100px;
+	bottom: 0;
+	width: 100%;
+	min-width: 1200px;	
+	height: 100px;
+	height: auto;
+}
+
+/* 이용약관 등등 */
+.footer_link {
+	float: left;
+	text-align: left;
+	font-size: 13px;
+}
+
+.footer_link ul {
+	display: flex;
+	padding-top: 35px;
+	padding-left: 20px;
+}
+
+.footer_link li{
+	float: left;
+	text-align: left;
+	font-size: 13px;
+	list-style: none; /* 점없애기 */
+}
+.footer_link a{
+	color: black;
+	text-decoration: none; /* 링크선 없애기 */
+	margin-right: 20px;
+}
+
+.footer_link li:first-of-type a {
+    font-size: 16px;
+    color: #4d4d4d;
+}
+
+/* 회사정보 */
+.company_info{
+	margin-right: 20px;
+	text-align: right;
+	font-size: 13px;
+	padding-bottom: 15px;
+}

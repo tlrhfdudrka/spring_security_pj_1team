@@ -1,0 +1,199 @@
+@charset "UTF-8";
+/* ad_productList.css */
+
+.container {
+   width: 100%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+}
+
+.contents {
+   width: 100%;
+   padding-top: 180px;
+   margin-bottom: 100px;
+/*    max-width: 1100px;
+   min-width: 1100px;
+   min-height: 800px; */
+}
+
+.wrap {
+	min-height: calc(100% - 120px);
+}
+
+#section2 {
+   display: flex;      /* 한줄(수평)로 배치 */
+    /* justify-content: space-between; */
+	 justify-content: center;
+}
+
+-----------------------------
+
+/* 내용 시작 */
+#right {
+   width: 88%;
+}
+
+.table_div {
+   margin-top: 30px;
+}
+
+.table_div table {
+   border-collapse: collapse;
+   width: 1100px; 
+    margin: 0 auto; /* 테이블을 가운데 정렬 */
+}
+
+.table_div  table th, td {
+   padding-left: 2px;
+   border-collapse: collapse; /* 테이블의 경계선을 합쳐서 보이지 않게 함 */
+}
+
+
+/* 글쓰기 버튼 */
+.write-btn {
+	float: right;
+	margin-top: 20px;
+	background-color: black;
+	font-size: 12px;
+	color: white;
+	padding: 7px 12px 7px 12px;
+	margin-right: 2px;
+	width: 63px;
+}
+
+.inputButton {
+	float: right;
+	margin-top: 20px;
+	background-color: #fff;
+	font-size: 12px;
+	color: black;
+	padding: 7px 12px 7px 12px;
+}
+
+td.top-border {
+	padding-bottom: 5px;
+    border-top: 1px solid black;
+}
+
+.board-title {
+	/* padding: 5px; */
+	font-size: 13px;
+	padding-bottom: 5px;
+	padding-top: 10px;
+}
+
+td.bottom-border {
+	padding-top: 5px;
+    border-bottom: 1px solid black;
+}
+
+.board-date {
+	padding: 5px;
+	font-size: 12px;
+	color: gray;
+}
+
+#container {
+	width: 100vh; /* 가운데 정렬 */
+}
+
+/* 페이지버튼 */
+.paging {
+	padding-top: 20px;
+}
+
+/* 하단 검색창 */
+/* .board-search {
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+} */
+
+/* .search-box {
+	margin-right: 5px;
+	width: 1035px;
+	height: 40px;
+	border: 1px solid lightgray;
+}
+ */
+.search-btn {
+	width: 60px;
+	height: 40px;
+   background-color: black;
+   font-size: 12px;
+   /* color: white; */
+   padding: 7px 12px 7px 12px;
+}
+
+.search-wrap {
+	margin-top: 5px;
+	display: flex;
+	justify-content: center;
+}
+.select-box {
+	margin-top: 40px;
+	display:flex;
+}
+
+.table_div .input,
+.table_div textarea{
+	width: 100% !important;
+}
+
+.table_div textarea{
+	height:300px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+}
+
+
+.table_div input{
+	height:35px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+}
+
+/* 폰트설정 */
+#writerLabel {
+	font-size:13px;
+	color:#4d4d4d;
+}
+
+#titleLabel {
+	font-size:13px;
+	color:#4d4d4d;
+}
+
+#contentLabel {
+	font-size:13px;
+	color:#4d4d4d;
+}
+
+#fileLabel {
+	font-size:13px;
+	color:#4d4d4d;
+}
+
+#passwordLabel {
+	font-size:13px;
+	color:#4d4d4d;
+}
+
+input {
+  padding: 0 10px; /* 여기에 적절한 값으로 조정하세요 */
+}
+
+.notice_num {
+	border: 1px solid lightgray;
+	height: 35px;
+}
+
+.user_id {
+	border: 1px solid lightgray;
+	height: 35px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

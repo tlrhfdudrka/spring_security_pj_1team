@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/* ad_productList.css */
+
+.container {
+   width: 100%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+}
+
+.contents {
+   padding-top: 180px;
+   margin-bottom: 100px;
+   max-width: 1100px;
+   min-width: 1100px;
+   width: 100%;
+   min-height: 800px;
+}
+
+#section2 {
+	display: flex;      /* 한줄(수평)로 배치 */
+	justify-content: center;
+}
+
+-----------------------------
+
+/* 내용 시작 */
+#right {
+   width: 88%;
+}
+
+.table_div {
+   margin-top: 30px;
+}
+
+.table_div  table {
+   border-collapse: collapse;
+   width: 1100px; 
+    margin: 0 auto; /* 테이블을 가운데 정렬 */
+}
+
+.table_div  table th, td {
+   padding-left: 2px;
+   border-collapse: collapse; /* 테이블의 경계선을 합쳐서 보이지 않게 함 */
+}
+
+.input {
+   width: 550px;
+   height: 40px;
+   border: 1px solid gray;
+   padding: 0 0 0 10px;
+}
+
+/* 글쓰기 버튼 */
+.write-btn {
+	float: right;
+	margin-left: 3px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	background-color: black;
+	font-size: 12px;
+	color: white;
+	padding: 7px 12px 7px 12px;
+}
+
+
+td.top-border {
+    border-top: 1px solid #ccc;
+    }
+
+.notice-title {
+	font-size: 14px;
+	padding-bottom: 15px;
+	padding-top: 10px;
+	color: #4d4d4d
+}
+
+td.bottom-border {
+	padding-top: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.notice_content {
+	font-size: 13px;
+	padding-bottom: 20px;
+	padding-top: 5px;
+	padding-top: 10px;
+	color: darkslategray;	
+}
+
+.notice-info {
+	/* padding: 5px; */
+	font-size: 12px;
+	color: gray;
+	padding-bottom: 15px;
+}
+
+#container {
+	width: 100vh; /* 가운데 정렬 */
+}
+
+table{
+ border-collapse:collapse;
+}

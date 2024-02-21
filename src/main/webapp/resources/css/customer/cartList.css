@@ -1,0 +1,209 @@
+@charset "UTF-8";
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+li{
+   list-style: none;
+}
+a{
+   text-decoration: none;
+   color: inherit;
+}
+
+.all_wrap {
+	margin: 0;
+	width: 100%;
+	height: auto;
+	min-height: 100%;	
+}
+
+.cart_wrap {
+	width: 100%;
+    margin: 0 auto;
+    padding-top: 150px;
+    height: 100%;
+}
+
+#cart_container {
+	max-width: 1000px;
+   	min-width: 1000px;
+   	width: 100%;
+   	margin: 0 auto;
+}
+
+/* 테이블 시작 */
+.cartList_tb {
+  	border-collapse: collapse;
+  	border-top: solid 1.5px black;
+  	width: 1000px;
+}
+
+/* 1행 장바구니 목록 시작 */
+.cartList_detail {
+	border-bottom: solid 1.5px black;
+}
+
+.cartList_detail td {
+	padding-top: 15px;
+	padding-bottom: 15px;
+	vertical-align: top;
+}
+
+/* 1-1열 체크박스 시작 */
+.cart_checkbox {
+	width: 30px;
+	padding-left: 5px;
+}
+
+.cartchkbox {
+  	width: 18px;
+  	height: 18px;
+  	accent-color: black;
+  	cursor: pointer;
+}
+/* 1-1열 체크박스 끝 */
+
+/* 1-2열 장바구니에 담은 상품 사진 시작 */
+.cart_pd_photo {
+	width: 90px;
+}
+
+.pd_img {
+	width: 80px;
+	height: 120px;
+	object-fit: fill;
+	cursor: pointer;
+}
+/* 1-2열 장바구니에 담은 상품 사진 끝 */
+
+/* 1-3열 상품명 및 간단한 배송정보 및 증가/감소 상품 수량 선택 시작 */
+.cart_pd_name {
+	/* width: 500px; */
+}
+
+.cart_pd_name_a {
+	font-weight: bold;
+}
+
+.cart_pd_name_p {
+	margin-top:10px; 
+	font-size: 12px;
+}
+
+/* 열 증가/감소 상품 수량 선택 시작 */
+.cart_pdcount_choice{
+	width: 100px;
+	margin-top:10px;
+}
+
+.minus {
+	border:none;
+	font-size: 20px;
+	background-color: white;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.plus {
+	border:none;
+	font-size: 20px;
+	background-color: white;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+/* 증가/감소 상품 수량 선택 끝 */
+/* 1-3열 상품명 및 간단한 배송정보 및 증가/감소 상품 수량 선택 끝 */
+
+/* 1-4열 상품 가격 시작 */
+.cart_pd_price {
+	/* width: 150px; */
+	text-align: center;
+}
+
+.cart_pd_price_p {
+	padding-top: 5px;
+}
+/* 1-4열 상품 가격 끝 */
+
+/* 1-6열 삭제 버튼 시작 */
+.cart_pd_delete{
+     width: 200px;
+	 text-align: right;
+	 padding-right:10px;
+}
+
+.delete_btn {
+	border:none;
+	background-color:white;
+	cursor: pointer;
+	font-size: 12px;
+	margin-top:10px;
+}
+/* 1-6열 삭제 버튼 끝 */
+/* 장바구니 목록 끝 */
+
+/* 2행 총주문금액 및 주문 버튼 시작 */
+
+
+#totalPrice_order td{
+	padding-top: 20px; 
+}
+
+#totalPrice_order_td1 {
+	width:600px;
+}
+
+#totalPrice_order_td2 {
+	width:200px;
+	text-align: right;
+}
+
+.totalPrice_order_p {
+	margin-bottom: 10px;
+}
+
+.totalPrice_order_span{
+	padding-right:75px;
+}
+
+#select_order_btn {
+	border: 1px solid black;
+	background-color: white;
+	padding: 7px 5px 5px 5px;
+	width: 150px;
+	height: 45px;
+	text-align: center;
+	font-size: 13px;
+	margin-top: 10px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#totalPrice_order_td3 {
+	width:200px;
+	text-align: right;
+	padding-right: 5px;
+}
+
+#all_order_btn {
+	border: 1px solid black;
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	padding: 7px 5px 5px 5px;
+	width: 150px;
+	height: 45px;
+	text-align: center;
+	font-size: 13px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+/* 총주문금액 및 주문 버튼 끝 */
+/* 테이블 끝 */

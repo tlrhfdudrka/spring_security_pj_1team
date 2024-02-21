@@ -1,0 +1,168 @@
+@charset "UTF-8";
+/* ad_productList.css */
+.container {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+}
+
+.contents {
+	padding-top: 150px;
+	max-width: 800px;
+	min-width: 800px;
+	width: 100%;
+	min-height: 800px;
+}
+
+/* ------------------------------------ */
+#section2 {
+	display: flex; /* 한줄(수평)로 배치 */
+	justify-content: center;
+}
+
+/* 주문내역|취소환불 버튼 정렬 */
+.topbtn-section {
+	display: flex;
+}
+
+/* 주문내역 버튼 */
+#order-btn {
+	border: none;
+	font-size: 12px;
+	background-color: white;
+	margin-right: 20px;
+	cursor: pointer;
+	color: lightgray;
+}
+
+/* 취소환불 버튼 */
+#cancel-btn {
+	border: none;
+	font-size: 12px;
+	background-color: white;
+	margin-right: 20px;
+	cursor: pointer;
+	color: lightgray;
+}
+
+/* ------------------------------------ */
+
+/* 주문상태 위치 조정*/
+.select-box {
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+}
+
+/* 주문상태 옵션창 */
+.time-select {
+	border-color: lightgray;
+	outline: none;
+	margin-right: 5px;
+	width: 800px;
+	height: 35px;
+	font-size: 12px;
+}
+
+/* '상태' 폰트 설정 */
+.select-box p {
+	font-size: 12px;
+	color: #4d4d4d;
+	margin-bottom: 7px;
+}
+
+/* '기간' 폰트 설정 */
+.time-box p {
+	font-size: 12px;
+	color: #4d4d4d;
+	margin-top: 30px;
+	margin-bottom: 7px;
+}
+
+/* 기간설정 버튼 */
+.time-box input {
+	background-color: white;
+	font-size: 12px;
+	color: #4d4d4d;
+	padding: 7px 84px 7px 83px;
+	border: 1px solid lightgray;
+	cursor: pointer;
+	margin-right: -3px;
+	height: 35px;
+}
+
+----------------------------- /* 내용 시작 */
+
+
+#right {
+	width: 88%;
+}
+
+.table_div {
+	margin-top: 30px;
+}
+
+.table_div table {
+	border-collapse: collapse;
+	width: 800px;
+	margin: 0 auto; /* 테이블을 가운데 정렬 */
+}
+
+.table_div  table th, td {
+	padding-left: 2px;
+	border-collapse: collapse; /* 테이블의 경계선을 합쳐서 보이지 않게 함 */
+}
+
+/* --------------- [ 주문정보 ] -------------- */
+#order-num {
+	padding-bottom: 10px;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+#pdName {
+	font-size: 16px;
+	font-weight: 500;
+	padding-left: 15px;
+	vertical-align: top;
+	height: 30px;
+}
+
+#pdPrice {
+	font-size: 12px;
+	font-weight: 500;
+	padding-left: 15px;
+	margin-top: 15px;
+	vertical-align: top;
+}
+
+#pdQty {
+	font-size: 12px;
+	font-weight: 400;
+	vertical-align: top;
+}
+
+.table_div img{
+	width: 100px;
+	height: 100px;
+	object-fit: fill;
+}
+
+#delivery-status {
+	margin-top: 25px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+/* 구매후기 버튼 */
+.write-btn {
+	margin-top: 25px;
+	float : right;
+	background-color: white;
+	font-size: 12px;
+	color: #4d4d4d;
+	padding: 7px 12px 7px 12px;
+	border: 1px solid lightgray;
+	float: right;
+}

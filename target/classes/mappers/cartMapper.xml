@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<!-- dao의 추상메서드들 구현하기  -->     
+<mapper namespace="spring.mvc.basic_1team.dao.CartDAO">
+	
+<!-- 
+	 CDATA : Character Data의 의미 : 면접
+     CDATA 영역에 작성된 특수문자데이터는 단순한 문자데이터(Character Data)로 인식하므로
+     XML 파서기(xml 분석하는것)가 처리하지 않고, 데이터베이스에 그대로 전달함으로써 에러가 발생하지 않도록 한다.
+          즉 <>와 같은 부등호를 xml 태그로 인식하지 않고, 단순 문자로 인식(부등호로 인식)하도록 한다.
+-->
+	
+	<!-- 게시글 목록(댓글갯수 포함) -->
+	<!-- resultType="BoardDTO" => dto에 set을해서 한건만 담고 dao에서 반복문 -->
+	<!-- 아래 부등호를 쓰면 태그와 헷갈릴수있어서 부등호라는것을 명시해줘야함 => <![CDATA[]]> -->
+	<select id="noticeList" parameterType="java.util.Map" resultType="spring.mvc.basic_1team.dto.CartDTO">
+		<![CDATA[
+		SELECT * 
+		  FROM (
+		  		SELECT A.*, 
+		  			   rownum AS rn
+		  		  FROM
+		  		  	  (
+		  		  	  	SELECT * FROM pj_notice_tbl
+						 WHERE show = 'y'
+						 ORDER BY notice_num DESC 
+					  ) A
+	    		)
+	  	WHERE rn >= #{start} 
+	  	  AND rn <= #{end}
+	  	]]>  
+	</select>
+
+	<!-- 게시글 갯수 구하기 -->
+	<select id="noticeCnt" resultType="int">
+		SELECT COUNT(*) as cnt FROM pj_notice_tbl
+	</select>
+	
+	<!-- 조회수 증가 -->
+	<update id="plusReadCnt" parameterType="spring.mvc.basic_1team.dto.CartDTO">
+		UPDATE pj_notice_tbl SET notice_readCnt = notice_readCnt + 1 WHERE notice_num= #{notice_num}
+	</update>
+	
+	<!-- 게시글 상세페이지 -->
+	<select id="getNoticeDetail" parameterType="int" resultType="spring.mvc.basic_1team.dto.CartDTO">
+		SELECT * FROM pj_notice_tbl WHERE notice_num= #{notice_num}
+	</select>
+
+	<!-- 게시글 수정처리 -->
+	<update id="updateNotice" parameterType="spring.mvc.basic_1team.dto.CartDTO">
+		UPDATE pj_notice_tbl
+		   SET notice_title = #{notice_title}, notice_content = #{notice_content}
+		 WHERE notice_num = #{notice_num}
+	</update>
+	
+	<!-- 게시글 삭제처리 -->
+	<delete id="deleteNotice" parameterType="int">
+		UPDATE pj_notice_tbl 	
+		   SET show = 'n'
+		 WHERE notice_num = #{notice_num}
+	</delete>
+	
+	<!-- 게시글 작성처리 -->
+	<insert id="writeNotice" parameterType="spring.mvc.basic_1team.dto.CartDTO">
+		INSERT INTO pj_notice_tbl (notice_num, user_id, notice_title, notice_content, notice_readCnt, notice_date)
+		VALUES ((SELECT NVL(MAX(notice_num)+1, 1) FROM pj_notice_tbl), #{user_id}, #{notice_title}, #{notice_content}, 0, sysdate)
+	</insert>
+</mapper>
