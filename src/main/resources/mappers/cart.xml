@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<mapper namespace="spring.mvc.basic_1team.dao.CartDAO">
+	
+	<!-- 장바구니 목록 -->
+	<select id="cartList" parameterType="String" resultType="spring.mvc.basic_1team.dto.CartDTO">
+		SELECT ct.*, pd.pd_name AS ct_pdname , pd.pd_img1 AS ct_pdimg, pd.pd_price AS ct_pdprice 
+				    FROM pj_cart_tbl ct JOIN pj_product_tbl pd 
+				      ON ct.pd_num = pd.pd_num 
+				     AND ct.is_delete = 'y' AND ct.is_payment = 'y' AND ct.user_id = #{user_id}
+				ORDER BY ct.cart_num desc
+	</select>
+	
+	<!-- 장바구니 전체상품총액 -->
+	<select id="cartTotalPrice" parameterType="String" resultType="int">
+		select sum(pd.pd_price * ct.cart_cnt) AS cart_total_price 
+				FROM pj_cart_tbl ct JOIN pj_product_tbl pd 
+				ON ct.pd_num = pd.pd_num 
+				AND ct.is_delete = 'y' AND ct.is_payment = 'y' AND ct.user_id = #{user_id}
+	</select>
+	
+	<!-- 장바구니 선택된 상품총액 -->
+	<select id="cartSelectpdPrice" parameterType="String" resultType="int">
+		select sum(pd.pd_price * ct.cart_cnt) AS cart_total_price 
+				FROM pj_cart_tbl ct JOIN pj_product_tbl pd 
+				ON ct.pd_num = pd.pd_num 
+				AND ct.is_delete = 'y' AND ct.is_payment = 'y' AND ct.is_chkbox = 'n' AND ct.user_id = #{user_id}
+	</select>
+	
+	<!-- 장바구니 상품 삭제 (y: 삭제안함, n: 삭제함) -->
+	<update id="cartPdDelete" parameterType="int">
+		UPDATE pj_cart_tbl SET is_delete = 'n' WHERE cart_num = #{cart_num}
+	</update>
+	
+	<!-- 장바구니 상품 수정(수량) -->
+	<update id="cartUpdate" parameterType="java.util.Map">
+		UPDATE pj_cart_tbl SET cart_cnt = #{cart_cnt} WHERE cart_num = #{cart_num}
+	</update>
+
+	<!-- 장바구니 상품 체크박스 선택시 -->
+	<update id="cartPdchecked" parameterType="int">
+		UPDATE pj_cart_tbl SET is_chkbox = 'n' WHERE cart_num = #{cart_num}
+	</update>
+	
+	<!-- 장바구니 상품 체크박스 비선택시 -->
+	<update id="cartPdNotcheked" parameterType="int">
+		UPDATE pj_cart_tbl SET is_chkbox = 'y' WHERE cart_num = #{cart_num}
+	</update>
+	
+	<!-- 장바구니 상품 추가시 중복확인 -->
+	<select id="cart_pdchk" parameterType="java.util.Map" resultType="int">
+		SELECT * FROM pj_cart_tbl WHERE user_id = #{user_id} AND pd_num = #{pd_num} AND is_payment = 'y' AND is_delete = 'y'
+	</select>
+	
+	<!-- 장바구니 상품 추가 -->
+	<insert id="cartPdAdd" parameterType="spring.mvc.basic_1team.dto.CartDTO">
+		INSERT INTO pj_cart_tbl (cart_num, user_id, pd_num) 
+		VALUES ((SELECT NVL(MAX(cart_num)+1, 1) FROM pj_cart_tbl), #{user_id}, #{pd_num})	
+	</insert>
+
+</mapper>

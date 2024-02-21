@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+#pd_list_container {
+   width: 100%;
+   margin: 0 auto;
+}
+
+#pd_list_contents {
+   max-width: 1100px;
+   min-width: 1100px;
+   width: 100%;
+   margin: 0 auto;
+   min-height: 800px;
+   padding-top: 150px;
+}
+
+#pd_list_section {
+   display: flex;
+   justify-content: space-between;
+}
+
+#pd_list_right {
+   width: 88%;
+}
+
+.ad_pd_list_table {
+   margin-top: 30px;
+}
+
+.ad_pd_list_table table {
+   border-collapse: collapse;
+   width: 800px;
+   border: 1px solid #ccc; 
+}
+
+.ad_pd_list_table th,
+.ad_pd_list_table td {
+   text-align: center;
+   font-size: 14px;
+   padding: 5px;
+   border-bottom: 1px solid #ccc;
+   font-weight: 400;
+   
+}
+.ad_pd_list_table th{
+	width: 150px;
+	height: 50px;
+}
+.ad_pd_list_table td{
+	height: 45px;
+	width: 650px;
+}
+
+.pd_list_img {
+   width: 80px;
+   height: 100px;
+}
+
+input[name="pd_list_btn"] {
+   padding-right: 2px;
+   background: white;
+   cursor: pointer;
+   border: none;
+}

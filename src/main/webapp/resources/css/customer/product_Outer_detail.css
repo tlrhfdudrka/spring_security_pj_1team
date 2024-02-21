@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+ul {
+  list-style: none;
+}
+
+#deouter_container {
+    width: 100%;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+#deouter_contents {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 800px;
+    padding-top: 100px;
+}
+
+#deouter_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-left: -25%; 
+    margin-right: -25%;
+}
+
+.deouter_img1, .deouter_img2 {
+    width: 100%;
+    text-align: center;
+     height: 50%;
+}
+
+.deouter_image {
+    display: block;
+    width: 100%;
+}
+
+.deouter_text1 {
+  display: flex; /* Flexbox 사용 */
+  flex-direction: column; /* 수직으로 나열되도록 설정 */
+  align-items: center; /* 수평 가운데 정렬 */
+}
+
+.deouter_text {
+  transition: .5s ease;
+  background-color: white;
+  color: black;
+  font-size: 14px;
+  text-align: left;
+  padding: 10px; /* 내용 간격 조정 */
+}
+
+#deouter_right {
+   width: 100%;
+}
+
+.deouter_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.deouter_list li {
+    width: calc(25% - 15px);
+    box-sizing: border-box;
+    padding: 15px;
+    text-align: center;
+}
+
+.deouter_list li:first-child .deouter_img2 {
+    margin-top: 100px; /* img2를 수직 정렬하면서 페이지 가운데 정렬 */
+    margin-left: -25%; /* 이미지를 가운데 정렬하기 위한 조정 */
+    margin-right: -25%;
+    text-align: center; 
+     width: 150%; /* 너비를 조절하세요 */
+}
+
+.deouter_list li .deouter_img1,
+.deouter_list li .deouter_img2 {
+    width: 100%;
+    text-align: center; /* 이미지 수평 정렬 */
+}
+
+.deouter_list li .deouter_text1 {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center; /* 텍스트 수평 정렬 */
+}
+
+#deouter_cart {
+    background-color: white;
+    padding: 10px 60px;
+    border: 1px solid black;
+    cursor: pointer;
+    margin: 10px auto; /* 수직 가운데 정렬을 위해 margin: 10px auto; 사용 */
+    display: block; /* 수평 중앙 정렬을 위해 블록 요소로 설정 */
+}
+
+.deouter_main {
+  width: 100%;
+	height: auto;
+	background-color: white;
+	color: #444;
+	cursor: pointer;
+	border: none;
+	text-align: left;
+	outline: none;
+	font-size: 13px;
+	transition: 0.4s;
+	padding: 14px 0;
+}
+
+.deouter_main:after {
+  color: #777;
+  font-weight: bold;
+  float: right;
+}
+
+.deouter_sub {
+  padding: 0 18px;
+  background-color: white;
+  transition: max-height 0.2s ease-out;
+  font-size: 12px;
+}
+
+.deouter_minus {
+   border:none;
+   font-size: 20px;
+   background-color: white;
+   width: 20px;
+   height: 20px;
+   text-align: center;
+   cursor: pointer;
+}
+
+.deouter_plus {
+   border:none;
+   font-size: 20px;
+   background-color: white;
+   width: 20px;
+   height: 20px;
+   text-align: center;
+   cursor: pointer;
+}
+
+#deouter_sum {
+	float: right;
+}

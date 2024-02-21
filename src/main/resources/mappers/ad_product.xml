@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<mapper namespace="spring.mvc.basic_1team.dao.Ad_product_DAO">
+	
+	<!-- 상품 개수 -->
+	<select id="pdCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM pj_product_tbl
+	</select>
+	
+	<!-- 상품 목록 -->
+	<select id="pdList" parameterType="java.util.Map" resultType="spring.mvc.basic_1team.dto.Ad_product_DTO">
+		<![CDATA[
+		SELECT * 
+				  FROM (
+				        SELECT A.*, 
+				            rownum AS rn 
+				          FROM 
+				           (
+				             SELECT * 
+				             FROM pj_product_tbl 
+									where show='y' 
+				             ORDER BY pd_num DESC 
+				           ) A
+				       ) 
+				 WHERE rn >= #{start}
+				 AND   rn <= #{end}
+				 ]]>
+	</select>
+	
+	<!-- 상품 등록 -->
+	<insert id="pdInsert" parameterType="spring.mvc.basic_1team.dto.Ad_product_DTO">
+		INSERT INTO pj_product_tbl (pd_num, category_num, pd_name, pd_price, pd_stuck, pd_content, pd_img1, pd_img2, pd_detail_img, pd_register)
+		VALUES ((SELECT NVL(MAX(pd_num)+1, 1) FROM pj_product_tbl), #{category_num}, #{pd_name}, #{pd_price}, #{pd_stuck}, #{pd_content}, #{pd_img1}, #{pd_img2}, #{pd_detail_img}, sysdate)
+	</insert>
+	
+	<!-- 상품 상세페이지 -->
+	<select id="pdListDetail" parameterType="int" resultType="spring.mvc.basic_1team.dto.Ad_product_DTO">
+		SELECT * FROM pj_product_tbl
+		WHERE pd_num=#{pd_num}
+	</select>
+	
+	<!-- 상품 수정 -->
+	<update id="pdUdate" parameterType="spring.mvc.basic_1team.dto.Ad_product_DTO">
+		UPDATE pj_product_tbl
+		SET category_num=#{category_num}, pd_name=#{pd_name}, pd_price=#{pd_price}, pd_stuck=#{pd_stuck}, pd_content=#{pd_content}, pd_img1=#{pd_img1}, pd_img2=#{pd_img2}, pd_detail_img=#{pd_detail_img}
+		WHERE pd_num=#{pd_num}
+	</update>
+	
+	<!-- 상품 삭제 -->
+	<delete id="pdDelete" parameterType="int">
+		UPDATE pj_product_tbl
+		SET show='n'
+		WHERE pd_num=#{pd_num}
+	</delete>
+
+</mapper>

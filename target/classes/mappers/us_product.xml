@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<mapper namespace="spring.mvc.basic_1team.dao.Us_product_DAO">
+	
+	<!-- 카테고리별 상품 개수 -->
+	<select id="usCnt" parameterType="int" resultType="int">
+		SELECT COUNT(*) AS cnt FROM pj_product_tbl 
+		WHERE category_num=#{category_num}		
+	</select>
+	
+	<!-- 상품 목록 -->
+	<select id="usListAction" parameterType="java.util.Map" resultType="spring.mvc.basic_1team.dto.Us_product_DTO">
+		<![CDATA[
+		SELECT * 
+				  FROM (
+				        SELECT A.*, 
+				            rownum AS rn 
+				          FROM 
+				           (
+				             SELECT * 
+				             FROM pj_product_tbl 
+									where show='y' 
+				             ORDER BY pd_num DESC 
+				           ) A
+				       ) 
+				 WHERE rn >= #{start}
+				 AND   rn <= #{end}
+				 ]]>
+	</select>
+	
+	<!-- 상품 상세페이지 -->
+	<select id="udDetailList" parameterType="int" resultType="spring.mvc.basic_1team.dto.Us_product_DTO">
+		SELECT * FROM pj_product_tbl 
+		WHERE pd_num=#{pd_num}
+	</select>
+
+</mapper>
