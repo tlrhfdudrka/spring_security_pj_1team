@@ -1,0 +1,169 @@
+@charset "UTF-8";
+/* ad_productList.css */
+
+.container {
+   width: 100%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: center;
+}
+
+.contents {
+   padding-top: 150px;
+   max-width: 1100px;
+   min-width: 1100px;
+   width: 100%;
+   min-height: 800px;
+}
+
+#section2 {
+   display: flex;      /* 한줄(수평)로 배치 */
+    /* justify-content: space-between; */
+	 justify-content: center;
+}
+
+-----------------------------
+
+/* 내용 시작 */
+#right {
+   width: 88%;
+}
+
+.table_div {
+   margin-top: 30px;
+}
+
+.table_div  table {
+   border-collapse: collapse;
+   width: 1100px; 
+  /*  align: center; 왜 적용이 안되지??? */
+    margin: 0 auto; /* 테이블을 가운데 정렬 */
+}
+
+.table_div  table th {
+  /*  background: #FDE3E9; */ /* 배경색 */
+}
+
+.table_div  table th, td {
+   /* height: 50px; */ /* 행높이 */
+   /* border: 1px solid black; */ /* 모든 선 없앰 */
+   padding-left: 2px;
+   /* text-align: center; */ /* 가운데 정렬 */
+   border-collapse: collapse; /* 테이블의 경계선을 합쳐서 보이지 않게 함 */
+}
+
+/* .input {
+   width: 550px;
+   height: 40px;
+   border: 1px solid gray;
+   padding: 0 0 0 10px;
+} */
+
+/* 글쓰기 버튼 */
+.write-btn {
+   margin-top: 20px;
+   float: right;
+  background-color: black;
+   font-size: 12px;
+   color: white;
+   padding: 7px 12px 7px 12px;
+   width: 45.5%;
+   margin-right: 2px;
+}
+
+.write-btn-w {
+   margin-top: 20px;
+   float: right;
+  background-color: #fff;
+   font-size: 12px;
+   color: black;
+   padding: 7px 12px 7px 12px;
+   width: 45%;
+}
+
+td.top-border {
+	padding-bottom: 5px;
+    border-top: 1px solid black;
+}
+
+.board-title {
+	/* padding: 5px; */
+	font-size: 13px;
+	padding-bottom: 5px;
+	padding-top: 10px;
+}
+
+td.bottom-border {
+	padding-top: 5px;
+    border-bottom: 1px solid black;
+}
+
+.board-date {
+	padding: 5px;
+	font-size: 12px;
+	color: gray;
+}
+
+#container {
+	width: 100vh; /* 가운데 정렬 */
+}
+
+/* 페이지버튼 */
+.paging {
+	padding-top: 20px;
+}
+
+/* 하단 검색창 */
+/* .board-search {
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+} */
+
+/* .search-box {
+	margin-right: 5px;
+	width: 1035px;
+	height: 40px;
+	border: 1px solid lightgray;
+}
+ */
+.search-btn {
+	width: 60px;
+	height: 40px;
+   background-color: black;
+   font-size: 12px;
+   /* color: white; */
+   padding: 7px 12px 7px 12px;
+}
+
+.search-wrap {
+	margin-top: 5px;
+	display: flex;
+	justify-content: center;
+}
+.select-box {
+	margin-top: 40px;
+	display:flex;
+}
+
+.table_div .input,
+.table_div textarea{
+	width: 100% !important;
+}
+
+.table_div textarea{
+	height:300px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+}
+
+
+.table_div input{
+	height:35px;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	border: 1px solid #ccc;
+}
+
+
