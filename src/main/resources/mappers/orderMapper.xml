@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+<!-- dao의 추상메서드들 구현하기  -->     
+<mapper namespace="spring.mvc.basic_1team.dao.OrderDAO">
+	
+<!-- 
+	 CDATA : Character Data의 의미 : 면접
+     CDATA 영역에 작성된 특수문자데이터는 단순한 문자데이터(Character Data)로 인식하므로
+     XML 파서기(xml 분석하는것)가 처리하지 않고, 데이터베이스에 그대로 전달함으로써 에러가 발생하지 않도록 한다.
+          즉 <>와 같은 부등호를 xml 태그로 인식하지 않고, 단순 문자로 인식(부등호로 인식)하도록 한다.
+-->
+	
+	<!-- 게시글 목록(댓글갯수 포함) -->
+	<!-- resultType="BoardDTO" => dto에 set을해서 한건만 담고 dao에서 반복문 -->
+	<!-- 아래 부등호를 쓰면 태그와 헷갈릴수있어서 부등호라는것을 명시해줘야함 => <![CDATA[]]> -->
+	
+	
+	
+	<!-- 장바구니 선택상품 결제 여부 수정 (결제 성공 가정하에) -->
+	<update id="isPaymentUpdate1" parameterType="spring.mvc.basic_1team.dto.CartDTO">
+		UPDATE pj_cart_tbl SET is_payment = 'n' WHERE is_chkbox ='n' AND user_id = #{user_id}
+	</update>
+	
+	<!-- 장바구니 전체상품 결제 여부 수정 (결제 성공 가정하에) -->
+	<update id="isPaymentUpdate2" parameterType="spring.mvc.basic_1team.dto.CartDTO">
+		UPDATE pj_cart_tbl SET is_payment = 'n' WHERE user_id = #{user_id} 
+	</update>
+	
+	<!-- 선택 상품 주문결제시 선택상품목록 (상품이미지, 상품명, 같은상품수량, 가격(상품가격*수량)) -->
+	<select id="selectPdList" parameterType="java.util.Map" resultType="spring.mvc.basic_1team.dto.CartDTO">
+		SELECT ct.*, pd.pd_name AS ct_pdname , pd.pd_img1 AS ct_pdimg, (pd.pd_price*ct.cart_cnt) AS ct_pdprice 
+					FROM pj_cart_tbl ct JOIN pj_product_tbl pd 
+					ON ct.pd_num = pd.pd_num 
+					AND ct.is_delete = 'y' AND ct.is_payment = 'y' AND ct.is_chkbox ='n' AND ct.user_id = #{user_id} 
+					order by ct.cart_num desc
+	</select>	
+			
+	<!-- 전체 상품 주문결제시 전체상품목록 (상품이미지, 상품명, 같은상품수량, 가격(상품가격*수량)) -->
+	<select id="allPdList" parameterType="java.util.Map" resultType="spring.mvc.basic_1team.dto.CartDTO">
+		SELECT ct.*, pd.pd_name AS ct_pdname , pd.pd_img1 AS ct_pdimg, (pd.pd_price*ct.cart_cnt) AS ct_pdprice 
+					FROM pj_cart_tbl ct JOIN pj_product_tbl pd 
+					ON ct.pd_num = pd.pd_num 
+					AND ct.is_delete = 'y' AND ct.is_payment = 'y' AND ct.user_id = #{user_id} 
+					order by ct.cart_num desc
+	</select>	
+	
+	
+	<!-- 회원 정보 가져오기 (주소, 이름, 전화번호) -->
+	<select id="CustomerDTO" parameterType="int" resultType="spring.mvc.basic_1team.dto.CartDTO">
+		select user_name, user_address, user_hp from pj_user_tbl where user_id = #{user_id} 
+	</select>
+	
+	
+	<!-- 장바구니 선택상품 결제 총액  -->
+	<select id="orderTotalPrice1" parameterType="int" resultType="spring.mvc.basic_1team.dto.CartDTO">
+		select sum(pd.pd_price * ct.cart_cnt) AS cart_total_price 
+					FROM pj_cart_tbl ct JOIN pj_product_tbl pd 
+					ON ct.pd_num = pd.pd_num 
+					AND ct.is_delete = 'y' AND ct.is_payment = 'y' AND ct.is_chkbox = 'n' AND ct.user_id = #{user_id} 
+	</select>
+				
+	<!-- 장바구니 전체상품 결제 총액  -->
+	<select id="orderTotalPrice2" parameterType="int" resultType="spring.mvc.basic_1team.dto.CartDTO">
+	select sum(pd.pd_price * ct.cart_cnt) AS cart_total_price 
+				FROM pj_cart_tbl ct JOIN pj_product_tbl pd 
+				ON ct.pd_num = pd.pd_num 
+				AND ct.is_delete = 'y' AND ct.is_payment = 'y' AND ct.user_id = #{user_id} 
+	</select>
+	
+	
+	
+</mapper>
