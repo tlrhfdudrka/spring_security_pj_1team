@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE mapper
+     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     
+     <mapper namespace="spring.mvc.basic_1team.dao.CustomerDAO">
+     
+    <!--회원가입 처리  -->
+    <insert id="insertCustomer" parameterType="spring.mvc.basic_1team.dto.CustomerDTO">
+    	INSERT INTO pj_user_tbl (user_id, user_pwd, user_name, user_hp, user_email, user_address)
+		VALUES (#{user_id}, #{user_pwd}, #{user_name}, #{user_hp}, #{user_email}, #{user_address})
+    </insert>
+    
+    <!--로그인 처리 / 회원정보 인증(수정, 탈퇴)  -->
+    <select id = "idpasswordChk" parameterType="java.util.Map" resultType="int">
+    	SELECT COUNT(*) FROM pj_user_tbl WHERE user_id = #{strId} AND user_pwd = #{strPassword}
+    </select>
+    
+    <!--회원탈퇴 처리  -->
+    <delete id="deleteCustomer" parameterType="String">
+    	DELETE FROM pj_user_tbl WHERE user_id = #{strId}
+    </delete>
+    
+    <!-- 회원 상세페이지 -->
+    <select id="getCustomerDetail" parameterType="String" resultType="spring.mvc.basic_1team.dto.CustomerDTO">
+    	SELECT * FROM pj_user_tbl WHERE user_id = #{strId}
+    </select>
+    
+    <!--회원정보 수정 처리  -->
+    <update id="updateCustomer" parameterType="spring.mvc.basic_1team.dto.CustomerDTO">
+	  UPDATE pj_user_tbl 
+	     SET user_pwd=#{user_pwd},
+		    	 user_name=#{user_name} ,
+		    	 user_hp=#{user_hp} ,
+		    	 user_email=#{user_email} ,
+		    	 user_address=#{user_address} 
+	      WHERE user_id=#{user_id}
+	</update>
+ 	</mapper>	

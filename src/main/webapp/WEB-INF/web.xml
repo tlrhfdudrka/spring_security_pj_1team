@@ -8,7 +8,9 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 			/WEB-INF/spring/root-context.xml
-			classpath:/dataSource-config.xml  <!-- 추가해야 작동  -->
+			classpath:/dataSource-config.xml
+			classpath:/security-context.xml
+			  <!-- 추가해야 작동  -->
 		</param-value>
 	</context-param>
 	
