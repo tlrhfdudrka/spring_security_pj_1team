@@ -24,8 +24,8 @@
      
     <!--회원가입 처리  -->
     <insert id="insertCustomer" parameterType="spring.mvc.basic_1team.dto.CustomerDTO">
-    	INSERT INTO pj_user_tbl (user_id, user_pwd, user_name, user_hp, user_email, user_address)
-		VALUES (#{user_id}, #{user_pwd}, #{user_name}, #{user_hp}, #{user_email}, #{user_address})
+    	INSERT INTO pj_user_tbl (user_id, user_pwd, user_name, user_hp, user_email, user_address,key)
+		VALUES (#{user_id}, #{user_pwd}, #{user_name}, #{user_hp}, #{user_email}, #{user_address},#{key})
     </insert>
     
     <!-- 시큐리티 - 로그인전에 이메일 인증을 해야 한다. -->

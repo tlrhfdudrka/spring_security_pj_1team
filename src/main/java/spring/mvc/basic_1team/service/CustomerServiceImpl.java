@@ -82,7 +82,7 @@ public class CustomerServiceImpl implements CustomerService {
 		// 3단계. 화면에서 입력받은 값을 가져온다.
 		String strId = req.getParameter("user_id");
 		String strPassword = req.getParameter("user_pwd");
-		
+		System.out.println("strPassword : " + req.getParameter("user_pwd"));
 		// 5단계. 로그인 처리
 		Map<String,Object> map = new HashMap<String,Object>();
 		map.put("strId",strId );
