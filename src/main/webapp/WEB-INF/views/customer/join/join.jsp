@@ -41,6 +41,11 @@
 				
 		          
 		       <form action="joinAction.do"  method="post" onsubmit="return validateForm()">
+		       
+		       <!-- 각 jsp의 form 태그 아래에 _csrf 지정을 안하면 권한 에러발생시켜 관리자 페이지로 이동하도록 함 -->
+               <!-- post 방식일때 method="post" 반드시 추가된 상태에서 -->
+               <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">  
+		            
 		            <div class="int-area">
 		                <input type="text" name="user_id" id="id" autocomplete="off" required>
 		                <label for="id">ID</label>

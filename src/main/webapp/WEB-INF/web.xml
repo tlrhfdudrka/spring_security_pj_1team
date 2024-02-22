@@ -31,8 +31,8 @@
 	</servlet>
 		
 	<servlet-mapping>
-		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
+    	<servlet-name>appServlet</servlet-name>
+    	<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
 	<!-- 한글 안깨지게 처리 시작 -->

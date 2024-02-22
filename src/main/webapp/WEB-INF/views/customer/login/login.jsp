@@ -18,6 +18,14 @@
 			
 			<!--header  -->
 			<%@ include file="/WEB-INF/views/common/header.jsp" %>
+			<!--header 끝-->
+			
+			<!--시큐리티 - UserLoginFailureHandler에서 넘긴 msg 받기  -->
+			<c:if test="${msg != null}">
+				<script type="text/javascript">
+				alert("${msg}");
+				</script>
+			</c:if>
 			
 			<div class="wrap">
 			<!--컨텐츠 시작  -->
@@ -30,6 +38,11 @@
 		        
 		        <c:if test = "${sessionScope.sessionID == null}">
 		        <form name ="loginform" action="loginAction.do" method="post" onsubmit="return validateForm()">
+		        
+		        <!-- 각 jsp의 form 태그 아래에 _csrf 지정을 안하면 권한 에러발생시켜 관리자 페이지로 이동하도록 함 -->
+		        <!-- post 방식일때 method="post" 반드시 추가된 상태에서 -->
+		        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">  
+		            
 		            <div class="int-area">
 		                <input type="text" name="user_id" id="id">
 		                <label for="id">Account ID</label>
@@ -71,7 +84,7 @@
                      </td>
                    </tr>
                 </table>
-		         </c:if>
+                  </c:if>
 		    </div>
 		</div>
 	</div>

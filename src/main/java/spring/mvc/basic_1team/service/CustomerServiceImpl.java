@@ -105,26 +105,26 @@ public class CustomerServiceImpl implements CustomerService {
 			throws ServletException, IOException {
 		System.out.println("서비스 - deleteCustomerAction");
 		
-		// 3단계. 화면에서 입력받은 값을 가져온다.
+//		// 3단계. 화면에서 입력받은 값을 가져온다.
 		String strId = (String)req.getSession().getAttribute("sessionID");
-		String strPassword = req.getParameter("user_pwd");
-		
-		// 5-1단계. 회원인증 처리
-		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("strId", strId);
-		map.put("strPassword", strPassword);
-		
-		int selectCnt = dao.idpasswordChk(map);
-		
-		// 회원인증 성공시
+//		String strPassword = req.getParameter("user_pwd");
+//		
+//		// 5-1단계. 회원인증 처리
+//		Map<String,Object> map = new HashMap<String,Object>();
+//		map.put("strId", strId);
+//		map.put("strPassword", strPassword);
+//		
+//		int selectCnt = dao.idpasswordChk(map);
+//		
+//		// 회원인증 성공시
 		int deleteCnt = 0;
-		if(selectCnt == 1) {
-			// 5-2단계. 회원탈퇴 처리
+//		if(selectCnt == 1) {
+//			// 5-2단계. 회원탈퇴 처리
 			deleteCnt = dao.deleteCustomer(strId);
 			req.getSession().invalidate();
-		}
-		
-		// 6단계. jsp로 처리결과 전달
+//		}
+//		
+//		// 6단계. jsp로 처리결과 전달
 		model.addAttribute("deleteCnt",deleteCnt);
 	}
 
@@ -134,25 +134,27 @@ public class CustomerServiceImpl implements CustomerService {
 			throws ServletException, IOException {
 		System.out.println("서비스 - modifyDetailAction");
 		
-		// 3단계. 화면에서 입력받은 값을 가져온다.
+		
+//		// 3단계. 화면에서 입력받은 값을 가져온다.
 		String strId = (String)req.getSession().getAttribute("sessionID");
-		String strPassword = req.getParameter("user_pwd");
-		
-		// 5-1단계. 회원인증 처리
-		Map<String,Object> map = new HashMap<String,Object>();
-		map.put("strId", strId);
-		map.put("strPassword", strPassword);
-		
-		int selectCnt = dao.idpasswordChk(map);
-		
-		CustomerDTO dto = null;
-		if(selectCnt == 1) {
-			dto = dao.getCustomerDetail(strId);
-		}
-		
-		// 6단계. jsp로 처리결과 전달
+//		String strPassword = req.getParameter("user_pwd");
+//		
+//		// 5-1단계. 회원인증 처리
+		CustomerDTO	dto = dao.getCustomerDetail(strId);
+//		Map<String,Object> map = new HashMap<String,Object>();
+//		map.put("strId", strId);
+//		map.put("strPassword", strPassword);
+//		
+//		int selectCnt = dao.idpasswordChk(map);
+//		
+//		CustomerDTO dto = null;
+//		if(selectCnt == 1) {
+//			dto = dao.getCustomerDetail(strId);
+//		}
+//		
+//		// 6단계. jsp로 처리결과 전달
 		model.addAttribute("dto",dto);
-		model.addAttribute("selectCnt",selectCnt);
+//		model.addAttribute("selectCnt",selectCnt);
 	}
 
 	// 회원정보 수정 처리

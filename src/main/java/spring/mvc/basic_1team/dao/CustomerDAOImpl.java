@@ -88,7 +88,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		String recipient = "woohyun7722@naver.com";
 		String subject = "회원가입 인증 메일";
 		String content = "링크를 눌러 회원가입을 확인하세요"
-				+"<a href='http://localhost/security_pj_1team/emailChkAction.do?key=" +key+"'>링크</a>";
+				+"<a href='http://localhost/basic_1team/emailChkAction.do?key=" + key + "'>링크</a>";
 		
 		Properties props = System.getProperties();
 		
@@ -117,7 +117,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 			mimeMessage.setFrom(new InternetAddress("woohyun7722@naver.com"));
 			mimeMessage.setRecipient(Message.RecipientType.TO,new InternetAddress(recipient));
 			mimeMessage.setSubject(subject); 
-			mimeMessage.setContent(content,"text/html; charset=utf-8\"");
+			mimeMessage.setContent(content,"text/html; charset=utf-8");
 			Transport.send(mimeMessage);
 			System.out.println("<<< Email SEND >>>");
 		}catch(Exception e) {
@@ -129,7 +129,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public int selectKey(String key) {
 		System.out.println("dao - selectKey");
-		int selectCnt = sqlSession.selectOne("spring.mvc.security_pj_ict02.dao.CustomerDAO.selectKey",key);
+		int selectCnt = sqlSession.selectOne("spring.mvc.basic_1team.dao.CustomerDAO.selectKey",key);
 		System.out.println("dao - selectCnt:"+selectCnt);
 		
 		return selectCnt;
@@ -139,7 +139,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	@Override
 	public int updateGrade(String key) {
 		System.out.println("dao - updateGrade");
-		int updateCnt = sqlSession.update("spring.mvc.security_pj_ict02.dao.CustomerDAO.updateGrade",key);
+		int updateCnt = sqlSession.update("spring.mvc.basic_1team.dao.CustomerDAO.updateGrade",key);
 		System.out.println("dao - updateCnt:"+updateCnt);
 		return updateCnt;
 	}

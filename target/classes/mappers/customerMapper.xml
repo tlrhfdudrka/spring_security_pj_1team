@@ -6,11 +6,39 @@
      
      <mapper namespace="spring.mvc.basic_1team.dao.CustomerDAO">
      
+     <!--시큐리티 -로그인 인증시 호출  -->
+     <!--UserAuthenticationService - loadUserByUsername(String userid)에서 호출  -->
+     <select id = "selectCustomer" parameterType = "String" resultType = "spring.mvc.basic_1team.dto.CustomerDTO">
+     	SELECT * FROM pj_user_tbl WHERE user_id=#{user_id}
+     </select>
+     
+     <!--시큐리티 -로그인 성공시    UserLoginSuccessHandler - onAuthenticationSuccess()에서 호출-->
+     <select id = "authorityCheck" parameterType = "String" resultType = "String">
+     	SELECT authority FROM pj_user_tbl WHERE user_id=#{user_id}
+     </select>
+     
+     <!--시큐리티 -로그인 실패시    UserLoginFailureHandler - onAuthenticationFailure()에서 호출-->
+     <select id = "passswordCheck"  parameterType = "String" resultType = "String">
+     	SELECT password FROM pj_user_tbl WHERE user_id=#{user_id}
+     </select>
+     
     <!--회원가입 처리  -->
     <insert id="insertCustomer" parameterType="spring.mvc.basic_1team.dto.CustomerDTO">
     	INSERT INTO pj_user_tbl (user_id, user_pwd, user_name, user_hp, user_email, user_address)
 		VALUES (#{user_id}, #{user_pwd}, #{user_name}, #{user_hp}, #{user_email}, #{user_address})
     </insert>
+    
+    <!-- 시큐리티 - 로그인전에 이메일 인증을 해야 한다. -->
+    <select id = "selectKey" parameterType="String" resultType="int">
+    	SELECT COUNT(*) FROM pj_user_tbl WHERE key=#{key}
+    </select>
+    
+     <!-- 시큐리티 - 등급변경 :로그인시 이메일 인증을 한경우 1로 수정하라-->
+     <update id="updateGrade" parameterType="String">
+     	UPDATE pj_user_tbl
+         SET enabled = 1
+       WHERE key=#{key}  
+     </update>
     
     <!--로그인 처리 / 회원정보 인증(수정, 탈퇴)  -->
     <select id = "idpasswordChk" parameterType="java.util.Map" resultType="int">
