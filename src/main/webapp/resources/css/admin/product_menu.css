@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+ul {
+	list-style: none;
+}
+
+#pd_menu {
+	width: 20%;
+	height: 100%;
+	margin: 0 50px 0 5px;
+}
+
+.pd_menu_inside {
+	margin: 0;
+	padding: 10px;
+	border: 1px solid #ccc;
+	height: 500px;
+}
+
+.pd_menu_top li {
+	text-align: left;
+	padding: 10px;
+	font-size: 14px;
+}
+
+.pd_menu_top h4 {
+	padding: 10px 10px 20px;
+	font-size: 16px;
+	border-bottom: 1px solid #ccc;
+}
+
+.pd_menu_top li a {
+	color: black;
+	text-decoration: none;
+}
+
+.pd_menu_bottom li {
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+
