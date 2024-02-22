@@ -1,0 +1,213 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+ 
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-y: scroll; 
+  max-height: 200px;
+}
+
+#join-form {
+  width: 400px;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom:100px;
+}
+
+#contents{
+	margin-top: -50px;
+	margin-right:80px;
+}
+
+
+/*sign in,create account 전체  */
+.caption{
+	margin-bottom:40px;
+}
+
+/*sign in*/
+.create-account {
+  margin: 0 20px;
+  font-size: 13px;
+  font-weight:bold;
+  color: lightgray;
+  text-decoration: none;
+}
+
+/*create account  */
+.create-account_2 {
+    color: black;
+    font-size: 13px;
+    font-weight:bold;
+    text-decoration: none;
+  }
+
+/* 회원인증 */
+.join_check{
+	font-size: 10px;
+	font-weight:bold;
+	line-height:30px;
+}
+
+
+/*아이디,비밀번호 항목 전체  */
+.int-area {
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+}
+
+.int-area:first-child {
+  margin-top: 0;
+}
+
+/*아이디,비밀번호 항목  */
+.int-area input {
+  width: 100%;
+  padding: 20px 10px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  outline: none;
+}
+
+/*Account ID,Account Password   */
+.int-area label {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  font-size: 10px;
+  font-weight:bold;
+  transition: top 0.5s ease;
+  width: calc(100% - 20px); /* 라벨의 너비를 조절하여 왼쪽 여백을 없앰 */
+}
+
+/*Forgot id?,Forgot Password?  */
+.int-area label.right {
+  text-align: right; /* 오른쪽 정렬 */
+  color:#ccc;
+}
+
+/*이 입력란을 작성하세요  */
+.int-area label.warning {
+  color: red !important;
+  animation: warning 0.3s ease;
+  animation-iteration-count: 3;
+}
+
+@keyframes warning {
+  0% {
+    transform: translateX(-8px);
+  }
+  25% {
+    transform: translateX(8px);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+
+.int-area input:focus + label,
+.int-area input:valid + label {
+  top: -2px;
+  font-size: 13px;
+  color: #166caa;
+}
+
+/*이용약관  */
+ .accordion-section {
+      width: 300px;
+      margin-top:40px;
+    }
+    
+/*모두 동의  */
+.check_all{
+	font-size:13px;
+	font-weight:bold;
+	display: inline-block;
+    
+	
+}
+
+/*동의 체크박스  */
+.all_agree{
+	font-size:13px;
+	display: inline-block;
+	justify-content:end;
+}
+
+/*라인  */
+hr {
+  width: 135%;
+   border: none;
+   border-bottom: 1px solid black;
+}
+
+/*이용약관 버튼  */
+    .accordion-button {
+      width: 134%;
+      padding: 10px;
+      text-align: left;
+      cursor: pointer;
+      border: none;
+      border-bottom: 1px solid black;
+      background-color:white;
+     
+    }
+    
+    /*이용약관 내용  */
+  .accordion-content {
+    display: none;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .active {
+    display: block;
+    width: 100%;
+    overflow-y: auto;
+    max-height: 200px; 
+    scrollbar-width: thin;
+  }
+  
+
+  p{
+	font-size: 10px;
+	color:#999;
+	border: 1px solid #ddd;
+}
+  
+
+/*sign in,버튼 전체 */
+.btn-area {
+  margin-top: 30px;
+  margin-right:50px;
+}
+
+/*sign in 버튼  */
+#btn {
+  width: 400px;
+  height: 45px;
+  margin: 0px 10px;
+  color: #fff;
+  background: black;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+
+
+
