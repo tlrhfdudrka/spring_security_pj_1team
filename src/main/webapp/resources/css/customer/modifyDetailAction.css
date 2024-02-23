@@ -1,0 +1,209 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+ 
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-y: scroll; 
+  max-height: 200px;
+}
+
+#profile-form {
+  width: 400px;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom:100px;
+}
+
+#contents{
+	margin-top: -50px;
+}
+
+/*아이디 비번 등등 항목 전체  */
+.int-area {
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.int-area:first-child {
+  margin-top: 0;
+}
+
+/*아이디 비번 등등 항목 */
+.int-area input {
+  width: 100%;
+  padding: 32px 10px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 15px;
+  outline: none;
+  order: -1;
+}
+
+/*아이디 비번 등등 제목  */
+.int-area label {
+  position: absolute;
+  left:0;
+  top: 15px;
+  font-size: 10px;
+  font-weight:bold;
+  transition: top 0.5s ease;
+  width: 100%;
+}
+
+
+/*(영문 대소문자/숫자/특수문자 중 2가지 이상 조합,10자~16자) */
+.pw{
+  text-align: right; /* 오른쪽 정렬 */
+  color:gray;
+  font-size:11px;
+}
+
+/*이 입력란을 작성하세요  */
+.int-area label.warning {
+  color: red !important;
+  animation: warning 0.3s ease;
+  animation-iteration-count: 3;
+}
+
+@keyframes warning {
+  0% {
+    transform: translateX(-8px);
+  }
+  25% {
+    transform: translateX(8px);
+  }
+  50% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+}
+
+
+
+
+/*핸드폰 번호 */
+.int_mobile_area {
+    position: relative;
+    margin-top:20px;
+}
+
+.int_mobile_area input {
+    width: 100%;
+    padding: 35px 10px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+
+.int_mobile_area label {
+  position: absolute;
+  left: 0;
+  top: 15px;
+  font-size: 10px;
+  font-weight:bold;
+  transition: top 0.5s ease;
+  width: calc(100% - 20px);
+}
+
+
+/* 생일 */
+.birth {
+  font-size: 10px; 
+  color:gray;
+  letter-spacing: 1px;
+  padding: 5px; 
+}
+
+.birth-area{
+  width: 100%;
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.birth-area label{
+  position: absolute;
+  left:0;
+  top: 15px;
+  font-size: 10px;
+  font-weight:bold;
+  transition: top 0.5s ease;
+  width: 100%;
+}
+
+.birth-area input{
+  width: 100%;
+  padding: 20px 10px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+  font-size: 18px;
+  outline: none;
+  order: -1;
+  margin-top: 15px;
+}
+
+
+/* 버튼 전체 */
+.btn-area {
+  display: flex;
+  text-align: center;
+  justify-content: space-around;  /* 각 버튼을 동일한 간격으로 배치 */
+  align-items: center; /* 세로 중앙 정렬 */
+  margin-top:20px;
+}
+
+/* 버튼 스타일 */
+.btn, .btn_1, .btn_2 {
+  width: 35%;
+  height: 40px;
+  text-align: center;
+  color: white;
+  margin: 0 6px;
+  border-radius:4px;
+}
+
+/* 첫버튼 */
+.btn {
+  background: black;
+  font-size:13px;
+  color:white;
+  display :inline-block;
+}
+
+/*두번재 버튼 */
+.btn_1 {
+  background: black;
+  font-size:13px;
+}
+
+/*세번째 버튼  */
+.btn_2 {
+  background: white;
+  color: black;
+  border: 1px solid lightgray;
+  font-size:13px;
+}
+
+
+
+
